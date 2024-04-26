@@ -16,9 +16,11 @@ options:
   username: ""
   minig_key: ""
   rig_name: ""
+  start_diff: "MEDIUM"
   threads: "1"
 schema:
   username: str
   minig_key: str
   rig_name: str
+  start_diff: str
   threads: int
