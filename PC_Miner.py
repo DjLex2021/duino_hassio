@@ -606,8 +606,7 @@ def check_mining_key(user_settings):
             mining_key = input("\t\t" + get_string("ask_mining_key")
                                + Style.BRIGHT + Fore.YELLOW)
             if mining_key == "": mining_key = "None" #replace empty input with "None" key
-            user_settings["mining_key"] = b64.b64encode(
-                mining_key.encode("utf-8")).decode('utf-8')
+            user_settings["mining_key"] = mining_key.encode("utf-8").decode('utf-8')
             sleep(1.5)
             check_mining_key(user_settings)
         else:
@@ -616,8 +615,7 @@ def check_mining_key(user_settings):
             if not retry or retry == "y" or retry == "Y":
                 mining_key = input(get_string("ask_mining_key"))
                 if mining_key == "": mining_key = "None" #replace empty input with "None" key
-                user_settings["mining_key"] = b64.b64encode(
-                    mining_key.encode("utf-8")).decode('utf-8')
+                user_settings["mining_key"] = mining_key.encode("utf-8").decode('utf-8')
                 sleep(1.5)
                 check_mining_key(user_settings)
             else:
@@ -840,7 +838,7 @@ class Miner:
                 while True:
                     try:
                         if user_settings["mining_key"] != "None":   
-                            key = b64.b64decode(user_settings["mining_key"]).decode('utf-8')    
+                            key = user_settings["mining_key"].decode('utf-8')    
                         else:   
                             key = user_settings["mining_key"]
 
