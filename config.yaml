@@ -1,0 +1,24 @@
+
+name: "Duino Coin PC Miner"
+description: "Mine Duino coins in Home Assistant"
+version: "1.0.0"
+slug: "ruiner"
+init: false
+arch:
+  - armv7
+
+apparmor: true
+backup: hot
+tmpfs: true
+stage: deprecated
+
+options:
+  username: ""
+  minig_key: ""
+  rig_name: ""
+  threads: "1"
+schema:
+  username: str
+  minig_key: str
+  rig_name: str
+  threads: int
