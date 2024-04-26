@@ -582,7 +582,7 @@ def get_string(string_name):
 
 def check_mining_key(user_settings):
     if user_settings["mining_key"] != "None":
-        key = '&k=' + urllib.parse.quote(user_settings["mining_key"].decode('utf-8'))
+        key = '&k=' + urllib.parse.quote(user_settings["mining_key"])
     else:
         key = ''
 
@@ -606,7 +606,7 @@ def check_mining_key(user_settings):
             mining_key = input("\t\t" + get_string("ask_mining_key")
                                + Style.BRIGHT + Fore.YELLOW)
             if mining_key == "": mining_key = "None" #replace empty input with "None" key
-            user_settings["mining_key"] = mining_key.encode("utf-8").decode('utf-8')
+            user_settings["mining_key"] = mining_key
             sleep(1.5)
             check_mining_key(user_settings)
         else:
@@ -615,7 +615,7 @@ def check_mining_key(user_settings):
             if not retry or retry == "y" or retry == "Y":
                 mining_key = input(get_string("ask_mining_key"))
                 if mining_key == "": mining_key = "None" #replace empty input with "None" key
-                user_settings["mining_key"] = mining_key.encode("utf-8").decode('utf-8')
+                user_settings["mining_key"] = mining_key
                 sleep(1.5)
                 check_mining_key(user_settings)
             else:
@@ -837,10 +837,7 @@ class Miner:
                 Miner.m_connect(id, pool)
                 while True:
                     try:
-                        if user_settings["mining_key"] != "None":   
-                            key = user_settings["mining_key"].decode('utf-8')    
-                        else:   
-                            key = user_settings["mining_key"]
+                        key = user_settings["mining_key"]
 
                         raspi_iot_reading = ""
                         if user_settings["raspi_cpu_iot"] == "y" and running_on_rpi:
