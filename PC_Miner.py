@@ -582,7 +582,7 @@ def get_string(string_name):
 
 def check_mining_key(user_settings):
     if user_settings["mining_key"] != "None":
-        key = '&k=' + urllib.parse.quote(b64.b64decode(user_settings["mining_key"]).decode('utf-8'))
+        key = '&k=' + urllib.parse.quote(user_settings["mining_key"].decode('utf-8'))
     else:
         key = ''
 
@@ -767,7 +767,7 @@ class Miner:
             "report_sec":    Settings.REPORT_TIME,
             "raspi_leds":    Settings.RASPI_LEDS,
             "raspi_cpu_iot": Settings.RASPI_CPU_IOT,
-            "discord_rp":    "y"
+            "discord_rp":    "n"
         }
 
         return config
