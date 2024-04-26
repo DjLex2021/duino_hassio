@@ -15,5 +15,6 @@ _____
  - Enjoy mining!
  
  ## Configuration: 
-- Enter your `Username`, `Mining_Key`, `Rig_Name` and `number of threads` in the addon configuration
+- Enter your `Username`, `Mining_Key`, `Rig_Name`, `Start_Diff` and `number of threads` in the addon configuration
 
+Difficulty can be: LOW, MEDIUM or NET
