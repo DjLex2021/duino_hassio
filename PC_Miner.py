@@ -45,7 +45,7 @@ import io
 
 from sys import argv
 
-script, username, mining_key, rig_name, threads = argv
+script, username, mining_key, rig_name, start_diff, threads = argv
 
 running_on_rpi = False
 
@@ -756,7 +756,7 @@ class Miner:
             "mining_key":    mining_key,
             "intensity":     95,
             "threads":       threads,
-            "start_diff":    2,
+            "start_diff":    start_diff,
             "donate":        0,
             "identifier":    rig_name,
             "algorithm":     "DUCO-S1",
