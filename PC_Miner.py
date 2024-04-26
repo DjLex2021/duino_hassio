@@ -87,9 +87,9 @@ def install(package):
     Automatically installs python pip package and restarts the program
     """
     try:
-        pip.main(["install",  package])
+        pip.main(["install --break-system-packages",  package])
     except AttributeError:
-        check_call([sys.executable, '-m', 'pip', 'install', package, '--break-system-packages'])
+        check_call([sys.executable, '-m', 'pip', 'install', package])
 
     execl(sys.executable, sys.executable, *sys.argv)
 
