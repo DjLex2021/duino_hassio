@@ -43,6 +43,8 @@ from locale import getdefaultlocale
 
 import io
 
+from sys import argv
+
 script, username, mining_key, rig_name, threads = argv
 
 running_on_rpi = False
