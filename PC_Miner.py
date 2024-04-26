@@ -89,7 +89,7 @@ def install(package):
     try:
         pip.main(["install",  package])
     except AttributeError:
-        check_call([sys.executable, '-m', 'pip', 'install', package])
+        check_call([sys.executable, '-m', 'pip', 'install', package, '--break-system-packages'])
 
     execl(sys.executable, sys.executable, *sys.argv)
 
