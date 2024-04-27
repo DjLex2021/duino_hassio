@@ -581,15 +581,10 @@ def get_string(string_name):
 
 
 def check_mining_key(user_settings):
-    if user_settings["mining_key"] != "None":
-        key = '&k=' + user_settings["mining_key"]
-    else:
-        key = ''
-
     response = requests.get(
         "https://server.duinocoin.com/mining_key"
             + "?u=" + user_settings["username"]
-            + key,
+            + "&k=" + user_settings["mining_key"],
         timeout=Settings.SOC_TIMEOUT
     ).json()
 
@@ -610,7 +605,7 @@ def check_mining_key(user_settings):
             sleep(1.5)
             check_mining_key(user_settings)
         else:
-            pretty_print(get_string("invalid_mining_key"), "error")
+            pretty_print(get_string("invalid_mining_key") + " (" + user_settings["mining_key"] + ")", "error")
             retry = input(get_string("key_retry"))
             if not retry or retry == "y" or retry == "Y":
                 mining_key = input(get_string("ask_mining_key"))
