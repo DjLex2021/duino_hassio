@@ -179,27 +179,6 @@ class Settings:
             COG = " @"
 
 
-def title(title: str):
-    if osname == 'nt':
-        """
-        Changing the title in Windows' cmd
-        is easy - just use the built-in
-        title command
-        """
-        ossystem('title ' + title)
-    else:
-        """
-        Most *nix terminals use
-        this escape sequence to change
-        the console window title
-        """
-        try:
-            print('\33]0;' + title + '\a', end='')
-            sys.stdout.flush()
-        except Exception as e:
-            print(e)
-
-
 class Algorithms:
     """
     Class containing algorithms used by the miner
@@ -941,10 +920,6 @@ class Miner:
                                         f"{get_string('surpassed')} {accept.value} {get_string('surpassed_shares')}",
                                         "success", "sys0", print_queue=print_queue)
 
-                                title(get_string('duco_python_miner') + str(Settings.VER)
-                                      + f') - {accept.value}/{(accept.value + reject.value)}'
-                                      + get_string('accepted_shares'))
-
                                 if id == 0:
                                     end_time = time()
                                     elapsed_time = end_time - last_report
@@ -1094,7 +1069,6 @@ if __name__ == "__main__":
     from multiprocessing import freeze_support
     freeze_support()
     signal(SIGINT, handler)
-    title(f"{get_string('duco_python_miner')}{str(Settings.VER)})")
 
     if sys.platform == "win32":
         os.system('') # Enable VT100 Escape Sequence for WINDOWS 10 Ver. 1607
