@@ -14,13 +14,13 @@ stage: deprecated
 
 options:
   username: ""
-  minig_key: ""
+  mining_key: ""
   rig_name: ""
   start_diff: "LOW"
   threads: "2"
 schema:
   username: str
-  minig_key: str
+  mining_key: str
   rig_name: str
   start_diff: str
   threads: int
