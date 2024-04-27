@@ -582,7 +582,7 @@ def get_string(string_name):
 
 def check_mining_key(user_settings):
     if user_settings["mining_key"] != "None":
-        key = '&k=' + urllib.parse.quote(user_settings["mining_key"])
+        key = '&k=' + user_settings["mining_key"]
     else:
         key = ''
 
