@@ -1,6 +1,6 @@
 # Duino Coin PC Miner Home Assistant addon
 _____
-## https://github.com/Qubic-Solutions/rqiner-builds
+## https://github.com/revoxhere/duino-coin/releases
 
 - Mine Duino coins in Home Assistant
 - Supported architectures:
